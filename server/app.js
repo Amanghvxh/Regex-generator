@@ -25,7 +25,11 @@ app.use(
 );
 app.use(express.json());
 app.use(CheckPrevMatch);
-app.get("/", (req, res) => {
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  next();
+});
+app.use("/", (req, res) => {
   res.status(200).json({ success: true, data: "This is root of the server" });
 });
 app.use("/api/v1/build", regexRouter);

@@ -12,7 +12,7 @@ const generateRegex = async function (
       language: language,
     };
     const { data } = await axios.post(
-      "http://localhost:500/api/v1/build",
+      "https://adorable-pig-costume.cyclic.app",
       reqBody
     );
     const regex = data.data.match(/\/(.*)\/([a-z]*)/);
